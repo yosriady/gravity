@@ -1,5 +1,6 @@
 defmodule GravityTest do
   use ExUnit.Case
+  doctest Gravity.Hash
   doctest Gravity
 
   test "the truth" do

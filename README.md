@@ -1,20 +1,13 @@
 # Gravity
 
-**TODO: Add description**
+Elixir client for the Gravatar API.
 
 ## Installation
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed as:
+Add gravity to your list of dependencies in `mix.exs`:
 
-  1. Add gravity to your list of dependencies in `mix.exs`:
-
+```
         def deps do
           [{:gravity, "~> 0.0.1"}]
         end
-
-  2. Ensure gravity is started before your application:
-
-        def application do
-          [applications: [:gravity]]
-        end
-
+```
