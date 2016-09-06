@@ -3,20 +3,20 @@ defmodule Gravity do
 
     Elixir client for the gravatar API. See types for possible option values.
 
-    iex> Gravity.image("yosriady@gmail.com")
-    "https://www.gravatar.com/avatar/1b0ab2500efc1b91424fb49045312929"
+      iex> Gravity.image("yosriady@gmail.com")
+      "https://www.gravatar.com/avatar/1b0ab2500efc1b91424fb49045312929"
 
-    iex> Gravity.image("yosriady@gmail.com", size: 200, rating: :pg, default: :retro)
-    "https://www.gravatar.com/avatar/1b0ab2500efc1b91424fb49045312929?size=200&rating=pg&default=retro"
+      iex> Gravity.image("yosriady@gmail.com", size: 200, rating: :pg, default: :retro)
+      "https://www.gravatar.com/avatar/1b0ab2500efc1b91424fb49045312929?size=200&rating=pg&default=retro"
 
-    iex> Gravity.image("yosriady@gmail.com", s: 200, r: :pg, d: :retro)
-    "https://www.gravatar.com/avatar/1b0ab2500efc1b91424fb49045312929?s=200&r=pg&d=retro"
+      iex> Gravity.image("yosriady@gmail.com", s: 200, r: :pg, d: :retro)
+      "https://www.gravatar.com/avatar/1b0ab2500efc1b91424fb49045312929?s=200&r=pg&d=retro"
 
-    iex> Gravity.profile("yosriady@gmail.com")
-    "https://www.gravatar.com/1b0ab2500efc1b91424fb49045312929"
+      iex> Gravity.profile("yosriady@gmail.com")
+      "https://www.gravatar.com/1b0ab2500efc1b91424fb49045312929"
 
-    iex>Gravity.profile("yosriady@gmail.com", :qr)
-    "https://www.gravatar.com/1b0ab2500efc1b91424fb49045312929.qr"
+      iex>Gravity.profile("yosriady@gmail.com", :qr)
+      "https://www.gravatar.com/1b0ab2500efc1b91424fb49045312929.qr"
 
   """
 
@@ -46,13 +46,11 @@ defmodule Gravity do
   end
 
   @spec profile(email, profile_format) :: url
-  def profile(email, format \\ :"", opts \\ []) do
+  def profile(email, format \\ :"") do
     hash = Hash.build(email)
-    params = "?#{URI.encode_query(opts)}"
     format_string = Atom.to_string(format)
-    nonempty_params? = (String.length(params) > 1)
     nonempty_format? = (String.length(format_string) > 1)
 
-    "#{Config.protocol}://www.gravatar.com/#{hash}#{if nonempty_format?, do: "." <> format_string}#{if nonempty_params?, do: params}"
+    "#{Config.protocol}://www.gravatar.com/#{hash}#{if nonempty_format?, do: "." <> format_string}"
   end
 end
