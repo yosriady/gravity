@@ -8,7 +8,7 @@ Add gravity to your list of dependencies in `mix.exs`:
 
 ```
         def deps do
-          [{:gravity, "~> 1.0.0"}]
+          [{:gravity, "~> 1.0.1"}]
         end
 ```
 
