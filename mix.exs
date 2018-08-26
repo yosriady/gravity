@@ -3,13 +3,13 @@ defmodule Gravity.Mixfile do
 
   def project do
     [app: :gravity,
-     version: "1.0.0",
-     elixir: "~> 1.2",
+     version: "1.0.1",
+     elixir: "~> 1.3",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
-     description: description,
-     package: package,
-     deps: deps]
+     description: description(),
+     package: package(),
+     deps: deps()]
   end
 
   # Configuration for the OTP application

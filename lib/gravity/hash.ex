@@ -13,7 +13,7 @@ defmodule Gravity.Hash do
   @spec build(String.t) :: String.t
   def build(email) do
     email
-    |> String.strip
+    |> String.trim
     |> String.downcase
     |> Crypto.md5
   end
